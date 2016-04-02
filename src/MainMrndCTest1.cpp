@@ -81,7 +81,7 @@ int main(){
 	//Test Circular Linked Lists
 
     //Test Between Days
-	/*
+	
 	int dates[2][8] = { { 0, 2, 0, 4, 2, 0, 1, 6 }, { 0, 4, 0, 4, 2, 0, 1, 6 } };
 
 	struct node *date1head = NULL, *date2head = NULL;
@@ -92,6 +92,6 @@ int main(){
 
 	int days = between_days(date1head, date2head);
 	printf("Total Days - %d\n",days);
-	*/
+	getchar();
 	//Test Concat4 Strings
 }

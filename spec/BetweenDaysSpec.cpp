@@ -61,7 +61,7 @@ namespace spec
 		[TestMethod, Timeout(2000)]
 		void Sample2_BetweenDays()
 		{
-			int dates[2][8] = { { 0, 2, 0, 4, 2, 0, 1, 6 }, { 0, 4, 0, 4, 2, 0, 1, 6 } };
+			int dates[2][8] = { { 1, 0, 0, 2, 2, 0, 1, 4 }, { 1, 0, 0, 3, 2, 0, 1, 5 } };
 
 			struct node *date1head = NULL, *date2head = NULL;
 			for (int i = 7; i >= 0; i--){
@@ -70,7 +70,7 @@ namespace spec
 			}
 
 			int days = between_days(date1head, date2head);
-			Assert::AreEqual(1, days, L"Date between 2nd April and 4th April failed", 1, 2);
+			Assert::AreEqual(392, days, L"Date between 2nd April and 4th April failed", 1, 2);
 		};
 		
 	};

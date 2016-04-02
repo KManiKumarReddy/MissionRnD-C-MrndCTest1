@@ -32,7 +32,38 @@ struct node{
 	int data;
 	struct node *next;
 };
+
+struct node * merge(struct node * a, struct node *b) {
+	struct node* result = NULL;
+	// returning a list if otehr list is empty
+	if (a == NULL)
+		return b;
+	if (b == NULL)
+		return a;
+	// if a is smaller, taking it as head and sorting the remaining list
+	if (a->data <= b->data) {
+		result = a;
+		result->next = merge(a->next, b);
+	}
+	// if b is smaller, taking it as head and sorting the remaining list
+	else {
+		result = b;
+		result->next = merge(a, b->next);
+	}
+	return result;
+}
+
 int merge_circularlists(struct node **head1, struct node **head2){
 	//Returns Length of merged Sorted circular SLL and also points *head1 to final SLL .
-	return -1;
+	*head1 = merge(*head1, *head2);
+	struct node *temp = *head1;
+	if (!(*head1))
+		return -1;
+	int count = 1;
+	while (temp->next != NULL) {
+		count++;
+		temp = temp->next;
+	}
+	temp->next = *head1;
+	return count;
 }
